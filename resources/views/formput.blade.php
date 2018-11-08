@@ -14,6 +14,11 @@
 
 </head>
 <body>
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
     <form action="{{ route('put.show') }}" method="post">
         {{ method_field('PUT') }}
         {{ csrf_field()  }}

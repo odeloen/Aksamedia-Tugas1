@@ -1,11 +1,21 @@
 @extends('layouts.master')
 
 @section('content')
-    <div id="page-wrapper" style="min-height: 347px;">
-        <div class="row">Form</div>
+    <div id="page-wrapper" style="min-height: 347px;">        
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Form</h1>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>                
         <form action="{{ route('post.show') }}" method="post">
             @csrf
-            <table>
+            <table> 
                 <tr class="form-group">
                     <td>Nama :</td>
                     <td><input class="form-control" type="text" name="nama"></td>
@@ -39,10 +49,14 @@
                 </tr>
                 <tr class="form-group">
                     <td>Alamat : </td>
-                    <td><textarea class="form-control" name="alamat" rows="10" cols="30"></textarea></td>
+                    <td><textarea class="form-control" name="alamat" rows="3" cols="30"></textarea></td>
+                </tr>
+                <tr class="form-group">
+                    <td>Motto : </td>
+                    <td><textarea class="form-control" name="motto" rows="3" cols="30"></textarea></td>
                 </tr>
             </table>
-            <input class="btn btn-default" type="submit" value="post">    
+            <input class="btn btn-default" type="submit" value="Simpan">    
         </form>        
     </div>
 @endsection
