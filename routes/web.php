@@ -12,8 +12,12 @@
 */
 
 Route::get('/', function () {
-    return redirect(route('post.view'));
+    return redirect(route('product.list'));
 });
+
+Route::get('products','ProductsController@index')->name('product.list');
+Route::get('products/add','ProductsController@addProduct')->name('product.add');
+Route::post('products/add','ProductsController@handlerAdd')->name('product.addhandler');
 
 Route::put('/put', function(Illuminate\Http\Request $request){        
     $request->validate([
