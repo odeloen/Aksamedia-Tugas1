@@ -20,5 +20,13 @@ class CategoriesTableSeeder extends Seeder
             'name' => 'Kategori 2',
             'description' => 'Deskripsi kategori 2',
         ]);
+        DB::table('categories')->insert([
+            'name' => 'Kategori 3',
+            'description' => 'Deskripsi kategori 3',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Kategori 4',
+            'description' => 'Deskripsi kategori 4',
+        ]);
     }
 }

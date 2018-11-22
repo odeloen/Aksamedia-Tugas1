@@ -12,12 +12,18 @@
 */
 
 Route::get('/', function () {
-    return redirect(route('product.list'));
+    return redirect(route('article.list'));
 });
 
 Route::get('products','ProductsController@index')->name('product.list');
 Route::get('products/add','ProductsController@addProduct')->name('product.add');
 Route::post('products/add','ProductsController@handlerAdd')->name('product.addhandler');
+
+Route::get('articles','ArticleController@list')->name('article.list');
+Route::get('articles/add','ArticleController@add')->name('article.add');
+Route::post('articles/add','ArticleController@handlerAdd')->name('article.addhandler');
+
+Route::get('categories','CategoryController@list')->name('category.list');
 
 Route::put('/put', function(Illuminate\Http\Request $request){        
     $request->validate([
