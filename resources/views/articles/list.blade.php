@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-    <div id="page-wrapper" style="min-height: 347px;">        
+    <div id="page-wrapper" style="min-height: 347px;">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Products List</h1>
+                <h1 class="page-header">Article List</h1>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -36,16 +36,20 @@
                                             @endforeach
                                         @endif
                                     </td>
+                                    <td>
+                                            <a href="{{route('article.edit',['id' => $article->id])}}"><button type="button" class="btn btn-warning">Edit</button></a>
+                                            <a href="{{route('article.handler.delete',['id' => $article->id])}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                                    </td>
                                 </tr>
                             @endforeach
-                        @endif                        
+                        @endif
                     </tbody>
                 </table>
             </div>
             <!-- /.table-responsive -->
         </div>
-        <!-- /.panel-body -->           
-        <a href="{{route('article.add')}}"><button type="button" class="btn btn-primary">Add New Article</button></a>        
-        <a href="{{route('category.list')}}"><button type="button" class="btn btn-primary">See Categories</button></a>        
+        <!-- /.panel-body -->
+        <a href="{{route('article.add')}}"><button type="button" class="btn btn-primary">Add New Article</button></a>
+        <a href="{{route('category.list')}}"><button type="button" class="btn btn-primary">See Categories</button></a>
     </div>
 @endsection
