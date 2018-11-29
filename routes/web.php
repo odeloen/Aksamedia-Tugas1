@@ -30,6 +30,9 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');
+
 Route::get('products','ProductsController@index')->name('product.list');
 Route::get('products/add','ProductsController@addProduct')->name('product.add');
 Route::post('products/add','ProductsController@handlerAdd')->name('product.addhandler');
